@@ -7,9 +7,14 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController {
     
+    
+    var people:[Person] = []
+    
+    var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -20,12 +25,28 @@ class ViewController: UIViewController {
         tableView.dataSource = self
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Person")
+        do {
+            people = try context.fetch(fetchRequest as! NSFetchRequest<NSFetchRequestResult>) as! [Person]
+        }
+        catch {
+            print("Fetching Failed")
+        }
+        
+        tableView.reloadData()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
     @IBAction func deleteBtn(_ sender: UIBarButtonItem) {
+        
+        
         
     }
     
@@ -38,11 +59,23 @@ class ViewController: UIViewController {
 extension ViewController: UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+        return 1
     }
+
     
-    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        <#code#>
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell") as! TableViewCell
+        
+        
+        if people.count != 0 {
+            let person = people[indexPath.row]
+            if let name = person.name{
+                cell.nameLabel.text = name
+            }
+        }
+        
+        return cell
+        
     }
     
     
