@@ -12,15 +12,19 @@ import CoreData
 class ViewController: UIViewController {
     
     
-    var people:[Person] = []
+    var todos:[Todo] = []
     
-    var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    @IBOutlet weak var deleteBtn: UIBarButtonItem!
+    let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
+    var context:NSManagedObjectContext!
+    
     
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        context = appDelegate.persistentContainer.viewContext
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -28,9 +32,9 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Person")
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Todo")
         do {
-            people = try context.fetch(fetchRequest as! NSFetchRequest<NSFetchRequestResult>) as! [Person]
+            todos = try context.fetch(fetchRequest as! NSFetchRequest<NSFetchRequestResult>) as! [Todo]
         }
         catch {
             print("Fetching Failed")
@@ -67,10 +71,10 @@ extension ViewController: UITableViewDelegate{
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell") as! TableViewCell
         
         
-        if people.count != 0 {
-            let person = people[indexPath.row]
-            if let name = person.name{
-                cell.nameLabel.text = name
+        if todos.count != 0 {
+            let todo = todos[indexPath.row]
+            if let task = todo.task{
+                cell.nameLabel.text = task
             }
         }
         
@@ -83,5 +87,19 @@ extension ViewController: UITableViewDelegate{
 
 extension ViewController: UITableViewDataSource{
     
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete{
+            
+            if todos.count != 0 {
+
+            let todo = todos[indexPath.row]
+            context.delete(todo)
+            appDelegate.saveContext()
+                
+            }
+        }
+    }
 }
 
