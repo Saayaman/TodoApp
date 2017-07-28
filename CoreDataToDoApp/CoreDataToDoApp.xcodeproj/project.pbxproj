@@ -13,7 +13,6 @@
 		7401EECA1F2BB15A00E98E42 /* CoreDataToDoApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7401EEC81F2BB15A00E98E42 /* CoreDataToDoApp.xcdatamodeld */; };
 		7401EECC1F2BB15A00E98E42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7401EECB1F2BB15A00E98E42 /* Assets.xcassets */; };
 		7401EECF1F2BB15A00E98E42 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7401EECD1F2BB15A00E98E42 /* LaunchScreen.storyboard */; };
-		7401EED71F2BB98400E98E42 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401EED61F2BB98400E98E42 /* TableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +24,6 @@
 		7401EECB1F2BB15A00E98E42 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7401EECE1F2BB15A00E98E42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7401EED01F2BB15A00E98E42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7401EED61F2BB98400E98E42 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +63,6 @@
 				7401EECD1F2BB15A00E98E42 /* LaunchScreen.storyboard */,
 				7401EED01F2BB15A00E98E42 /* Info.plist */,
 				7401EEC81F2BB15A00E98E42 /* CoreDataToDoApp.xcdatamodeld */,
-				7401EED61F2BB98400E98E42 /* TableViewCell.swift */,
 			);
 			path = CoreDataToDoApp;
 			sourceTree = "<group>";
@@ -143,7 +140,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7401EEC41F2BB15A00E98E42 /* ViewController.swift in Sources */,
-				7401EED71F2BB98400E98E42 /* TableViewCell.swift in Sources */,
 				7401EECA1F2BB15A00E98E42 /* CoreDataToDoApp.xcdatamodeld in Sources */,
 				7401EEC21F2BB15A00E98E42 /* AppDelegate.swift in Sources */,
 			);
@@ -309,6 +305,7 @@
 				7401EED51F2BB15A00E98E42 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
