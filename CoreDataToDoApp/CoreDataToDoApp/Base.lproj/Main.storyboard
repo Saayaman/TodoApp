@@ -58,11 +58,6 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Core Data Todo App" id="AyR-8F-2ZK">
-                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="trash" id="Uoz-Mo-lEL">
-                            <connections>
-                                <action selector="deleteBtn:" destination="BYZ-38-t0r" id="OcJ-rQ-0gs"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="GbQ-md-WN3">
                             <connections>
                                 <action selector="addBtn:" destination="BYZ-38-t0r" id="bOQ-aR-BwE"/>
@@ -71,7 +66,6 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="deleteBtn" destination="Uoz-Mo-lEL" id="rVI-iE-MUG"/>
                         <outlet property="tableView" destination="Cob-jO-DBu" id="9bJ-aK-12G"/>
                     </connections>
                 </viewController>

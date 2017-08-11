@@ -71,6 +71,7 @@ class ViewController: UIViewController {
             todo.task = textField.text
             self.todos.append(todo)
             (UIApplication.shared.delegate as! AppDelegate).saveContext()
+            self.refreshTableView()
         })
         
         // Cancel button
